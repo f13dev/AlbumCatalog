@@ -1,2 +1,2 @@
 # AlbumCatalog
-Android app to catalog CD/Tape/Vinyl albums that are owned or wanted to own.
+Album Catalog is an Android mobile app that utilises the AlbumSystem java backend for cataloging Artists and Albums.
