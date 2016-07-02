@@ -30,5 +30,7 @@ public class AlbumCatalogMain extends AppCompatActivity {
         coord.addAlbum("Battle for the sun", "Placebo", true);
         coord.addAlbum("Untouchables", "Korn", true);
         coord.addAlbum("Follow the leader", "Korn", true);
+
+
     }
 }
