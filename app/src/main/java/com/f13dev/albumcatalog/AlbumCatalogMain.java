@@ -14,5 +14,21 @@ public class AlbumCatalogMain extends AppCompatActivity {
 
         // Initialize the AlbumCoord object
         AlbumCoord coord = new AlbumCoord();
+
+        // Initialize a number of Artist objects
+        coord.addArtist("Metallica");
+        coord.addArtist("Guns n Roses");
+        coord.addArtist("Placebo");
+        coord.addArtist("Korn");
+
+        // Initialize a number of Album objects
+        coord.addAlbum("The Black Album", "Metallica", true);
+        coord.addAlbum("Ride the lightning", "Metallica", false);
+        coord.addAlbum("Without you I'm nothing", "Placebo", true);
+        coord.addAlbum("Sleeping with ghosts", "Placebo", true);
+        coord.addAlbum("Placebo", "Placebo", true);
+        coord.addAlbum("Battle for the sun", "Placebo", true);
+        coord.addAlbum("Untouchables", "Korn", true);
+        coord.addAlbum("Follow the leader", "Korn", true);
     }
 }
