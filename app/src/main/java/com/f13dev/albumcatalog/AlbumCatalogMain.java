@@ -1,11 +1,14 @@
 package com.f13dev.albumcatalog;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 // Import the AlbumCore system
 import com.f13dev.AlbumCore.*;
 
-public class AlbumCatalogMain extends AppCompatActivity {
+public class AlbumCatalogMain extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,43 @@ public class AlbumCatalogMain extends AppCompatActivity {
         coord.addAlbum("Untouchables", "Korn", true);
         coord.addAlbum("Follow the leader", "Korn", true);
 
+        // Create links to buttons
+        Button buttonAddArtist = (Button) findViewById(R.id.btnAddArtist);
+        Button buttonAddAlbum = (Button) findViewById(R.id.btnAddAlbum);
+        Button buttonViewCatalog = (Button) findViewById(R.id.btnViewCatalog);
+        Button buttonQuit = (Button) findViewById(R.id.btnQuit);
 
+        buttonAddArtist.setOnClickListener(this);
+        buttonAddAlbum.setOnClickListener(this);
+        buttonViewCatalog.setOnClickListener(this);
+        buttonQuit.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent i = new Intent();
+
+        if (view.getId() == R.id.btnQuit)
+        {
+            finish();
+            System.exit(0);
+        }
+        else
+        {
+            if(view.getId() == R.id.btnAddArtist)
+            {
+                i = new Intent(this, AddArtistActivity.class);
+            }
+            else if (view.getId() == R.id.btnAddAlbum)
+            {
+                i = new Intent(this, AddAlbumActivity.class);
+            }
+            else if (view.getId() == R.id.btnViewCatalog)
+            {
+                i = new Intent(this, ViewCatalogActivity.class);
+            }
+            startActivity(i);
+        }
     }
 }
