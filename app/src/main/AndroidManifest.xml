@@ -17,7 +17,7 @@
         </activity>
         <activity android:name=".AddAlbumActivity" />
         <activity android:name=".AddArtistActivity" />
-        <activity android:name=".ViewCatalogActivity"></activity>
+        <activity android:name=".ViewCatalog"></activity>
     </application>
 
 </manifest>

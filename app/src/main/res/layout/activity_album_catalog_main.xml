@@ -14,35 +14,35 @@
         android:layout_width="150sp"
         android:layout_height="wrap_content"
         android:text="Add Artist"
-        android:id="@+id/btnAddArtist"
-        android:layout_above="@+id/btnAddAlbum"
-        android:layout_alignLeft="@+id/btnViewCatalog"
-        android:layout_alignStart="@+id/btnViewCatalog"
+        android:id="@+id/buttonAddArtist"
+        android:layout_above="@+id/buttonAddAlbum"
+        android:layout_alignLeft="@+id/buttonViewCatalog"
+        android:layout_alignStart="@+id/buttonViewCatalog"
         android:layout_marginBottom="63dp" />
 
     <Button
         android:layout_width="150sp"
         android:layout_height="wrap_content"
         android:text="Add Album"
-        android:id="@+id/btnAddAlbum"
+        android:id="@+id/buttonAddAlbum"
         android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/btnQuit"
-        android:layout_alignEnd="@+id/btnQuit" />
+        android:layout_alignRight="@+id/buttonQuit"
+        android:layout_alignEnd="@+id/buttonQuit" />
 
     <Button
         android:layout_width="150sp"
         android:layout_height="wrap_content"
         android:text="View Catalog"
-        android:id="@+id/btnViewCatalog"
+        android:id="@+id/buttonViewCatalog"
         android:layout_marginTop="58dp"
-        android:layout_below="@+id/btnAddAlbum"
+        android:layout_below="@+id/buttonAddAlbum"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="150sp"
         android:layout_height="wrap_content"
         android:text="Quit"
-        android:id="@+id/btnQuit"
+        android:id="@+id/buttonQuit"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

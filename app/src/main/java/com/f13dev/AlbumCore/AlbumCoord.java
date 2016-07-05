@@ -5,6 +5,9 @@
  */
 package com.f13dev.AlbumCore;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.*;
 
 /**
@@ -199,5 +202,5 @@ public class AlbumCoord {
         }
         return temp;
     }
-    
+
 }

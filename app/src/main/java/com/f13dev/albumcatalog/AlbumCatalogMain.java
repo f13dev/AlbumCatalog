@@ -8,15 +8,38 @@ import android.widget.Button;
 // Import the AlbumCore system
 import com.f13dev.AlbumCore.*;
 
-public class AlbumCatalogMain extends AppCompatActivity implements View.OnClickListener {
+import java.io.Serializable;
+
+public class AlbumCatalogMain extends AppCompatActivity implements View.OnClickListener, Serializable {
+
+    // Button variables
+    Button buttonAddArtist;
+    Button buttonViewCatalog;
+    Button buttonAddAlbum;
+    Button buttonQuit;
+    AlbumCoord coord;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album_catalog_main);
 
+        buttonAddArtist = (Button) findViewById(R.id.buttonAddArtist);
+        buttonAddArtist.setOnClickListener(this);
+
+        buttonViewCatalog = (Button) findViewById(R.id.buttonViewCatalog);
+        buttonViewCatalog.setOnClickListener(this);
+
+        buttonAddAlbum = (Button) findViewById(R.id.buttonAddAlbum);
+        buttonAddAlbum.setOnClickListener(this);
+
+        buttonQuit = (Button) findViewById(R.id.buttonQuit);
+        buttonQuit.setOnClickListener(this);
+
+
         // Initialize the AlbumCoord object
-        AlbumCoord coord = new AlbumCoord();
+        coord = new AlbumCoord();
 
         // Initialize a number of Artist objects
         coord.addArtist("Metallica");
@@ -34,43 +57,31 @@ public class AlbumCatalogMain extends AppCompatActivity implements View.OnClickL
         coord.addAlbum("Untouchables", "Korn", true);
         coord.addAlbum("Follow the leader", "Korn", true);
 
-        // Create links to buttons
-        Button buttonAddArtist = (Button) findViewById(R.id.btnAddArtist);
-        Button buttonAddAlbum = (Button) findViewById(R.id.btnAddAlbum);
-        Button buttonViewCatalog = (Button) findViewById(R.id.btnViewCatalog);
-        Button buttonQuit = (Button) findViewById(R.id.btnQuit);
-
-        buttonAddArtist.setOnClickListener(this);
-        buttonAddAlbum.setOnClickListener(this);
-        buttonViewCatalog.setOnClickListener(this);
-        buttonQuit.setOnClickListener(this);
-
     }
 
-    @Override
-    public void onClick(View view) {
-        Intent i = new Intent();
 
-        if (view.getId() == R.id.btnQuit)
+    @Override
+    public void onClick(View v) {
+        Intent i = new Intent (this, AlbumCatalogMain.class);
+        switch (v.getId())
         {
-            finish();
-            System.exit(0);
-        }
-        else
-        {
-            if(view.getId() == R.id.btnAddArtist)
-            {
+            case R.id.buttonViewCatalog:
+                i = new Intent(this, ViewCatalog.class);
+                i.putExtra("AlbumCoord", (Serializable) coord);
+                startActivity(i);
+                break;
+            case R.id.buttonAddArtist:
                 i = new Intent(this, AddArtistActivity.class);
-            }
-            else if (view.getId() == R.id.btnAddAlbum)
-            {
+                startActivity(i);
+                break;
+            case R.id.buttonAddAlbum:
                 i = new Intent(this, AddAlbumActivity.class);
-            }
-            else if (view.getId() == R.id.btnViewCatalog)
-            {
-                i = new Intent(this, ViewCatalogActivity.class);
-            }
-            startActivity(i);
+                startActivity(i);
+                break;
+            case R.id.buttonQuit:
+                finish();
+                System.exit(0);
+                break;
         }
     }
 }

@@ -3,34 +3,28 @@ package com.f13dev.albumcatalog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
-public class AddAlbumActivity extends AppCompatActivity implements View.OnClickListener {
+import com.f13dev.AlbumCore.*;
+
+
+public class AddAlbumActivity extends AppCompatActivity  {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_album);
 
-        Button buttonBack = (Button) findViewById(R.id.btnBack);
+        Spinner spinnerArtist = (Spinner) findViewById(R.id.spinnerArtist);
+        String[] artists = new String[3];
 
-        buttonBack.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view) {
-        Intent i = new Intent();
-
-        if (view.getId() == R.id.btnBack)
-        {
-            i = new Intent(this, AlbumCatalogMain.class);
-        }
-        else
-        {
-            i = new Intent(this, AddAlbumActivity.class);
-        }
-        startActivity(i);
+        String[] anArray = new String[]{"item1", "item2", "item3", "item4"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, anArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerArtist.setAdapter(adapter);
 
     }
 }
